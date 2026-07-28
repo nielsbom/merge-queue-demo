@@ -7,7 +7,7 @@ jobs:
     name: Get Date/Time
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v8
         id: date_time
         with:
           result-encoding: string
@@ -25,7 +25,7 @@ jobs:
         file_name: ['File1.txt']
         file_content: ['Hello World! ${{ needs.get_date_time.outputs.date_time }}', 'Hello Mars! ${{ needs.get_date_time.outputs.date_time }}']
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
     - id: create-pr
       uses: austenstone/merge-queue-demo/.github/actions/create-pr@main
       with:
