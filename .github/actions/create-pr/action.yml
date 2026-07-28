@@ -1,5 +1,5 @@
-name: 'Create PR'
-description: 'Greet someone'
+name: "Create PR"
+description: "Greet someone"
 inputs:
   file_name:
     description: "The name of the file to be created"
@@ -44,7 +44,7 @@ runs:
     - id: set-uuid
       run: echo "uuid=$(uuidgen)" >> $GITHUB_OUTPUT
       shell: bash
-    - uses: stefanzweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v7.2.0
       with:
         branch: ${{ inputs.branch_name && inputs.branch_name || format('patch-{0}-{1}', inputs.file_name, steps.set-uuid.outputs.uuid) }}
         create_branch: true
