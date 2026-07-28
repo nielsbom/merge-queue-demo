@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v5
     - id: create-pr
-      uses: austenstone/merge-queue-demo/.github/actions/create-pr@main
+      uses: ./.github/actions/create-pr
       with:
         file_name: ${{ matrix.file_name }}
         file_content: ${{ matrix.file_content }}
