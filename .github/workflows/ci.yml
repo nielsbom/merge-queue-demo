@@ -47,6 +47,8 @@ jobs:
       - name: 😴 sleep ${{ steps.random.outputs.number }}s
         if: github.event_name == 'pull_request'
         run: sleep ${{ steps.random.outputs.number }}
+      - name: Test
+        run: ./test.sh
       - name: Fail
         if: ${{ github.event_name == 'merge_group' && contains(steps.get_commit_message.outputs.commit_message, 'fail') }}
         run: exit 1
